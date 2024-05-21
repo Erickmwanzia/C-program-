@@ -1,0 +1,12 @@
+// program displaying my details 
+#include <stdio.h>
+
+int main() {
+    printf("am eric mwanzia a 1st year student\n");
+    printf("am studing comp science\n");
+    printf("currently doing the c programming\n");
+    printf("i stay at south b\n");
+    printf("it fun staying there");
+
+    return 0;
+}
