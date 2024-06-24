@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int main() {
+    int customerID, units;
+    char customerName[100];
+    float chargesPerUnit, totalBill, surcharge = 0;
+
+    // Prompt the user to enter Customer ID, Customer Name, and Units Consumed
+    printf("Enter Customer ID: ");
+    scanf("%d", &customerID);
+    printf("Enter Customer Name: ");
+    scanf("%s", customerName);
+    printf("Enter Units Consumed: ");
+    scanf("%d", &units);
+
+    // Determine charges per unit based on units consumed
+    if (units < 200) {
+        chargesPerUnit = 120;
+    } else if (units < 400) {
+        chargesPerUnit = 150;
+    } else if (units < 600) {
+        chargesPerUnit = 200;
+    } else {
+        chargesPerUnit = 250; // Assuming a new slab for units >= 600
+    }
+
+    // Calculate the total bill
+    totalBill = units * chargesPerUnit;
+
+    // If the bill exceeds Ksh 4000, add a surcharge of 15%
+    if (totalBill > 4000) {
+        surcharge = totalBill * 0.15;
+        totalBill += surcharge;
+    }
+
+    // Ensure the minimum bill is Ksh 100
+    if (totalBill < 100) {
+        totalBill = 100;
+    }
+
+    // Display the output
+    printf("\nCustomer ID: %d\n", customerID);
+    printf("Customer Name: %s\n", customerName);
+    printf("Units Consumed: %d\n", units);
+    printf("Charges per Unit: %.2f\n", chargesPerUnit);
+    printf("Total Amount to Pay: %.2f\n", totalBill);
+
+    return 0;
+}
